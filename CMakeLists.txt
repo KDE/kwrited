@@ -67,4 +67,4 @@ else ()
 endif ()
 
 # The .notifyrc file is common
-install(FILES kwrited.notifyrc DESTINATION ${DATA_INSTALL_DIR}/kwrited)
+install(FILES kwrited.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
