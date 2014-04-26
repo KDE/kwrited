@@ -17,7 +17,7 @@ include(KDECompilerSettings)
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
 )
-find_package(KF5 CONFIG REQUIRED COMPONENTS
+find_package(KF5 REQUIRED COMPONENTS
     Pty
     KDE4Support
 )
