@@ -1,8 +1,10 @@
 [Desktop Entry]
 Name=KDE Write Daemon
+Name[nl]=KDE Write-daemon
 Name[uk]=Фонова служба запису KDE
 Name[x-test]=xxKDE Write Daemonxx
 Comment=Watch for messages from local users sent with write(1) or wall(1)
+Comment[nl]=Observeer berichten van lokale gebruikers verzonden met write(1) of wall(1)
 Comment[uk]=Спостерігання за  повідомленнями від локальних користувачів, відісланих через write(1) або wall(1)
 Comment[x-test]=xxWatch for messages from local users sent with write(1) or wall(1)xx
 Type=Service

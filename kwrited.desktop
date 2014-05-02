@@ -1,8 +1,10 @@
 [Desktop Entry]
 Name=Write Daemon
+Name[nl]=Write-daemon
 Name[uk]=Фонова служба запису
 Name[x-test]=xxWrite Daemonxx
 Comment=Watch for messages from local users sent with write(1) or wall(1)
+Comment[nl]=Observeer berichten van lokale gebruikers verzonden met write(1) of wall(1)
 Comment[uk]=Спостерігання за  повідомленнями від локальних користувачів, відісланих через write(1) або wall(1)
 Comment[x-test]=xxWatch for messages from local users sent with write(1) or wall(1)xx
 Type=Service

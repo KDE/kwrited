@@ -1,14 +1,17 @@
 [Global]
 IconName=utilities-terminal
 Comment=Local system message service
+Comment[nl]=Service voor lokale systeemberichten
 Comment[uk]=Служба повідомлень локальної системи
 Comment[x-test]=xxLocal system message servicexx
 
 [Event/NewMessage]
 Name=New message received
+Name[nl]=Nieuwe boodschap ontvangen
 Name[uk]=Отримано нове повідомлення
 Name[x-test]=xxNew message receivedxx
 Comment=The daemon received a new message sent with wall(1) or write(1)
+Comment[nl]=De daemon ontving een nieuwe boodschap verzonden met wall(1) of write(1)
 Comment[uk]=Фоновою службою отримано нове повідомлення, надіслане за допомогою wall(1) або write(1)
 Comment[x-test]=xxThe daemon received a new message sent with wall(1) or write(1)xx
 Sound=KDE-Sys-App-Message.ogg
