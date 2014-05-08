@@ -39,8 +39,13 @@ if (BUILD_AS_EXECUTABLE)
     target_compile_definitions(kwrited PRIVATE -DKWRITED_STRING_VERSION="${KWRITED_STRING_VERSION}")
     target_link_libraries(kwrited  KF5::KDE4Support KF5::Pty)
     install(TARGETS kwrited  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+    if(IS_ABSOLUTE BIN_INSTALL_DIR)
+        set(ABS_BIN_INSTALL_DIR "${BIN_INSTALL_DIR}")
+    else()
+        set(ABS_BIN_INSTALL_DIR "\${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_DIR}")
+    endif()
     install(CODE "
-               set(KWRITED_PATH \"\$ENV{DESTDIR}${BIN_INSTALL_DIR}/kwrited\")
+               set(KWRITED_PATH \"\$ENV{DESTDIR}${ABS_BIN_INSTALL_DIR}/kwrited\")
 
                # On Debian we setgid instead of setuid.
                # Feel free to add checks here for other distros as well, if needed.
