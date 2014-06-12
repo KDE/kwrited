@@ -149,7 +149,7 @@ void KWrited::block_in()
 
   KNotification *notification = new KNotification("NewMessage", 0, KNotification::Persistent);
 #if !defined(BUILD_AS_EXECUTABLE)
-  notification->setComponentData( KWritedFactory::componentData() );
+  notification->setComponentName( QStringLiteral("kwrited") );
 #endif
   notification->setText( msg );
   connect(notification, SIGNAL(closed()), notification, SLOT(deleteLater()) );

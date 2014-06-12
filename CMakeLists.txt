@@ -13,24 +13,32 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
+include(FeatureSummary)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Core
 )
+
+option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" ON)
+
 find_package(KF5 REQUIRED COMPONENTS
     Pty
     KDE4Support
 )
+
+if (NOT BUILD_AS_EXECUTABLE)
+find_package(KF5DBusAddons)
+set_package_properties(KF5DBusAddons PROPERTIES DESCRIPTION "Convenience classes for DBus"
+                       TYPE REQUIRED
+                       PURPOSE "Needed to build kwrited's KDED module"
+                      )
+endif ()
 
 # If libutempter is not available on the system, we build
 # kwrited as an executable that is installed with setuid root
 # (or setgid utmp) in order to be able to login successfully
 # (and thus be useful, as kwrited does not work at all if it
 # cannot login to the terminal device that it opens).
-
-if (NOT KDE4_KPTY_BUILT_WITH_UTEMPTER)
-    set(BUILD_AS_EXECUTABLE 1)
-endif ()
 
 configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited.h)
 
@@ -65,7 +73,7 @@ if (BUILD_AS_EXECUTABLE)
 else ()
     add_library(kded_kwrited MODULE kwrited.cpp)
     target_compile_definitions(kded_kwrited PRIVATE -DKWRITED_STRING_VERSION="${KWRITED_STRING_VERSION}")
-    target_link_libraries(kded_kwrited  KF5::KDE4Support KF5::Pty)
+    target_link_libraries(kded_kwrited KF5::DBusAddons KF5::KDE4Support KF5::Pty)
     install(TARGETS kded_kwrited  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
     install(FILES kwrited.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
@@ -73,3 +81,5 @@ endif ()
 
 # The .notifyrc file is common
 install(FILES kwrited.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+
+feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
