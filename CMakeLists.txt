@@ -1,9 +1,7 @@
 project(kwrited)
+set(PROJECT_VERSION "5.0.95")
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.3.0")
-
-set(KWRITED_VERSION 5.0.0)
-set(KWRITED_STRING_VERSION "${KWRITED_VERSION}")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
@@ -44,7 +42,7 @@ configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited
 
 if (BUILD_AS_EXECUTABLE)
     add_executable(kwrited kwrited.cpp)
-    target_compile_definitions(kwrited PRIVATE -DKWRITED_STRING_VERSION="${KWRITED_STRING_VERSION}")
+    target_compile_definitions(kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
     target_link_libraries(kwrited  KF5::KDE4Support KF5::Pty)
     install(TARGETS kwrited  ${INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
@@ -72,7 +70,7 @@ if (BUILD_AS_EXECUTABLE)
     install(FILES kwrited-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR})
 else ()
     add_library(kded_kwrited MODULE kwrited.cpp)
-    target_compile_definitions(kded_kwrited PRIVATE -DKWRITED_STRING_VERSION="${KWRITED_STRING_VERSION}")
+    target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
     target_link_libraries(kded_kwrited KF5::DBusAddons KF5::KDE4Support KF5::Pty)
     install(TARGETS kded_kwrited  DESTINATION ${PLUGIN_INSTALL_DIR} )
 

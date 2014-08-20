@@ -42,7 +42,7 @@
 
 static inline KAboutData aboutData()
 {
-    return KAboutData("kwrited", i18n("kwrited"), KWRITED_STRING_VERSION);
+    return KAboutData("kwrited", i18n("kwrited"), PROJECT_VERSION);
 }
 
 #if defined(BUILD_AS_EXECUTABLE)
