@@ -21,7 +21,7 @@ option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" ON)
 
 find_package(KF5 REQUIRED COMPONENTS
     Pty
-    KDE4Support
+    KDELibs4Support
 )
 
 if (NOT BUILD_AS_EXECUTABLE)
@@ -43,7 +43,7 @@ configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited
 if (BUILD_AS_EXECUTABLE)
     add_executable(kwrited kwrited.cpp)
     target_compile_definitions(kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kwrited  KF5::KDE4Support KF5::Pty)
+    target_link_libraries(kwrited  KF5::KDELibs4Support KF5::Pty)
     install(TARGETS kwrited  ${INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
         set(ABS_BIN_INSTALL_DIR "${BIN_INSTALL_DIR}")
@@ -71,7 +71,7 @@ if (BUILD_AS_EXECUTABLE)
 else ()
     add_library(kded_kwrited MODULE kwrited.cpp)
     target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kded_kwrited KF5::DBusAddons KF5::KDE4Support KF5::Pty)
+    target_link_libraries(kded_kwrited KF5::DBusAddons KF5::KDELibs4Support KF5::Pty)
     install(TARGETS kded_kwrited  DESTINATION ${PLUGIN_INSTALL_DIR} )
 
     install(FILES kwrited.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
