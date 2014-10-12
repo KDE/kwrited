@@ -22,7 +22,7 @@
 // Own
 #include "kwrited.h"
 
-#include <kdebug.h>
+#include <QDebug>
 #include <kptydevice.h>
 #include <kuser.h>
 #include <knotification.h>
@@ -118,7 +118,7 @@ KWrited::KWrited() : QObject()
 #endif
 
   connect(pty, SIGNAL(readyRead()), this, SLOT(block_in()));
-  kDebug() << "listening on device" << pty->ttyName();
+  //qDebug() << "listening on device" << pty->ttyName();
 }
 
 KWrited::~KWrited()
@@ -156,4 +156,3 @@ void KWrited::block_in()
   notification->sendEvent();
 }
 
-#include "kwrited.moc"
