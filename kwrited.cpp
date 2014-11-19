@@ -30,8 +30,7 @@
 #include <kaboutdata.h>
 
 #if defined(BUILD_AS_EXECUTABLE)
-# include <QtCore/QCoreApplication>
-# include <kcomponentdata.h>
+# include <QApplication>
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -53,7 +52,7 @@ static gid_t original_egid;
 static void sigterm_handler(int signal)
 {
     Q_UNUSED(signal)
-    QCoreApplication::quit();
+    QApplication::quit();
 }
 
 int main(int argc, char **argv)
@@ -70,8 +69,8 @@ int main(int argc, char **argv)
     signal(SIGINT, sigterm_handler);
     signal(SIGHUP, sigterm_handler);
 
-    KComponentData kcompdata(aboutData().componentName().toLatin1());
-    QCoreApplication a(argc, argv);
+    KAboutData::setApplicationData(aboutData());
+    QApplication a(argc, argv);
     KWrited w;
     return a.exec();
 }
@@ -92,7 +91,6 @@ KWritedModule::~KWritedModule()
 K_PLUGIN_FACTORY(KWritedFactory,
                  registerPlugin<KWritedModule>();
     )
-K_EXPORT_PLUGIN(KWritedFactory(aboutData()))
 
 #endif //BUILD_AS_EXECUTABLE
 
@@ -156,3 +154,6 @@ void KWrited::block_in()
   notification->sendEvent();
 }
 
+#if !defined(BUILD_AS_EXECUTABLE)
+#include "kwrited.moc"
+#endif
