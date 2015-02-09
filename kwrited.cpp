@@ -31,6 +31,7 @@
 
 #if defined(BUILD_AS_EXECUTABLE)
 # include <QApplication>
+# include <QSessionManager>
 # include <signal.h>
 # include <sys/types.h>
 # include <unistd.h>
@@ -70,7 +71,14 @@ int main(int argc, char **argv)
     signal(SIGHUP, sigterm_handler);
 
     KAboutData::setApplicationData(aboutData());
+    QApplication::setDesktopSettingsAware(false);
     QApplication a(argc, argv);
+    auto disableSessionManagement = [](QSessionManager &sm) {
+            sm.setRestartHint(QSessionManager::RestartNever);
+    };
+    QObject::connect(&a, &QGuiApplication::commitDataRequest, disableSessionManagement);
+    QObject::connect(&a, &QGuiApplication::saveStateRequest, disableSessionManagement);
+
     KWrited w;
     return a.exec();
 }
