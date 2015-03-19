@@ -17,14 +17,18 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" ON)
-
 find_package(KF5 REQUIRED COMPONENTS
     CoreAddons
     I18n
     Pty
     Notifications
 )
+
+if (KPty_HAVE_UTEMPTER)
+option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" OFF)
+else ()
+option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" ON)
+endif ()
 
 if (NOT BUILD_AS_EXECUTABLE)
 find_package(KF5DBusAddons)
