@@ -8,6 +8,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FR
 find_package(ECM 0.0.11 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
+include(CMakeDependentOption)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
@@ -24,11 +25,8 @@ find_package(KF5 REQUIRED COMPONENTS
     Notifications
 )
 
-if (KPty_HAVE_UTEMPTER)
-option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" OFF)
-else ()
-option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" ON)
-endif ()
+cmake_dependent_option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executable" OFF
+                       "KPty_HAVE_UTEMPTER" ON)
 
 if (NOT BUILD_AS_EXECUTABLE)
 find_package(KF5DBusAddons)
