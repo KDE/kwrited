@@ -2,6 +2,7 @@ project(kwrited)
 set(PROJECT_VERSION "5.5.90")
 cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
 set(QT_MIN_VERSION "5.4.0")
+set(KF5_MIN_VERSION "5.10.0")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
@@ -18,7 +19,7 @@ find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Widgets
 )
 
-find_package(KF5 REQUIRED COMPONENTS
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Pty
@@ -73,12 +74,14 @@ if (BUILD_AS_EXECUTABLE)
 
     install(FILES kwrited-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR})
 else ()
-    add_library(kded_kwrited MODULE kwrited.cpp)
+    kcoreaddons_add_plugin(kded_kwrited
+        SOURCES kwrited.cpp
+        JSON kwrited.json
+        INSTALL_NAMESPACE "kf5/kded"
+    )
+    set_target_properties(kded_kwrited PROPERTIES OUTPUT_NAME kwrited)
     target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
     target_link_libraries(kded_kwrited KF5::CoreAddons KF5::DBusAddons KF5::I18n KF5::Notifications KF5::Pty)
-    install(TARGETS kded_kwrited  DESTINATION ${PLUGIN_INSTALL_DIR} )
-
-    install(FILES kwrited.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kded)
 endif ()
 
 # The .notifyrc file is common

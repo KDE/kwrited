@@ -96,8 +96,9 @@ KWritedModule::~KWritedModule()
     delete pro;
 }
 
-K_PLUGIN_FACTORY(KWritedFactory,
-                 registerPlugin<KWritedModule>();
+K_PLUGIN_FACTORY_WITH_JSON(KWritedFactory,
+                           "kwrited.json",
+                           registerPlugin<KWritedModule>();
     )
 
 #endif //BUILD_AS_EXECUTABLE
