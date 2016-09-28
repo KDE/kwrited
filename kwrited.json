@@ -28,6 +28,7 @@
         "Description[uk]": "Спостереження за  повідомленнями від локальних користувачів, відісланих через write(1) або wall(1)", 
         "Description[x-test]": "xxWatch for messages from local users sent with write(1) or wall(1)xx", 
         "Description[zh_CN]": "监视本地用户使用 write(1) 或 wall(1) 发送的消息", 
+        "Description[zh_TW]": "監控使用者透過 write(1) 或 wall(1) 傳送的訊息", 
         "Name": "Write Daemon", 
         "Name[ast]": "Degorriu d'escritura", 
         "Name[ca@valencia]": "Dimoni d'escriptura", 
@@ -58,6 +59,7 @@
         "Name[uk]": "Фонова служба запису", 
         "Name[x-test]": "xxWrite Daemonxx", 
         "Name[zh_CN]": "Write 守护进程", 
+        "Name[zh_TW]": "Write 伺服程式", 
         "ServiceTypes": [
             "KDEDModule"
         ]
