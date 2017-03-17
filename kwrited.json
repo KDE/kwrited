@@ -3,6 +3,7 @@
         "Description": "Watch for messages from local users sent with write(1) or wall(1)", 
         "Description[ca@valencia]": "Vigila els missatges dels usuaris locals enviats amb write(1) o wall(1)", 
         "Description[ca]": "Vigila els missatges dels usuaris locals enviats amb write(1) o wall(1)", 
+        "Description[cs]": "Sledování zpráv od místních uživatelů poslaných pomocí write(1) nebo wall(1)", 
         "Description[da]": "Hold øje med beskeder fra lokale brugere som sendes med write(1) eller wall(1)", 
         "Description[de]": "Meldungen lokaler Benutzer überwachen, die mittels write(1) oder wall(1) gesendet werden", 
         "Description[el]": "Έλεγχος μηνυμάτων από τοπικούς χρήστες που στάλθηκαν με write(1) η wall(1)", 
