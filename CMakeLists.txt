@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.0)
 project(kwrited)
 set(PROJECT_VERSION "5.12.80")
 
-set(QT_MIN_VERSION "5.4.0")
-set(KF5_MIN_VERSION "5.10.0")
+set(QT_MIN_VERSION "5.9.0")
+set(KF5_MIN_VERSION "5.42.0")
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY -DQT_NO_KEYWORDS)
 
@@ -32,7 +32,7 @@ cmake_dependent_option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executab
                        "KPty_HAVE_UTEMPTER" ON)
 
 if (NOT BUILD_AS_EXECUTABLE)
-find_package(KF5DBusAddons)
+find_package(KF5DBusAddons ${KF5_MIN_VERSION})
 set_package_properties(KF5DBusAddons PROPERTIES DESCRIPTION "Convenience classes for DBus"
                        TYPE REQUIRED
                        PURPOSE "Needed to build kwrited's KDED module"
