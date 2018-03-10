@@ -31,7 +31,7 @@ class KWrited : public QObject
   Q_OBJECT
 public:
   KWrited();
- ~KWrited();
+ ~KWrited() override;
 
 private Q_SLOTS:
   void block_in();
@@ -47,7 +47,7 @@ class KWritedModule : public KDEDModule
 {
 public:
   KWritedModule(QObject* parent, const QList<QVariant>&);
- ~KWritedModule();
+ ~KWritedModule() override;
 private:
   KWrited* pro;
 };
