@@ -73,9 +73,7 @@ int main(int argc, char **argv)
     KAboutData::setApplicationData(aboutData());
     QApplication::setDesktopSettingsAware(false);
     QApplication a(argc, argv);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
     QGuiApplication::setFallbackSessionManagementEnabled(false);
-#endif
     auto disableSessionManagement = [](QSessionManager &sm) {
             sm.setRestartHint(QSessionManager::RestartNever);
     };
