@@ -23,7 +23,7 @@
 #define KWRITED_H
 
 #include <config-kwrited.h>
-#include <QtCore/QObject>
+#include <QObject>
 class KPtyDevice;
 
 class KWrited : public QObject
