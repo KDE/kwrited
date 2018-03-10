@@ -70,9 +70,9 @@ int main(int argc, char **argv)
     signal(SIGINT, sigterm_handler);
     signal(SIGHUP, sigterm_handler);
 
-    KAboutData::setApplicationData(aboutData());
     QApplication::setDesktopSettingsAware(false);
     QApplication a(argc, argv);
+    KAboutData::setApplicationData(aboutData());
     QGuiApplication::setFallbackSessionManagementEnabled(false);
     auto disableSessionManagement = [](QSessionManager &sm) {
             sm.setRestartHint(QSessionManager::RestartNever);
