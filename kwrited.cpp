@@ -157,7 +157,7 @@ void KWrited::block_in()
   msg.remove('\r');
   msg.remove('\a');
 
-  KNotification *notification = new KNotification("NewMessage", 0, KNotification::Persistent);
+  KNotification *notification = new KNotification("NewMessage", nullptr, KNotification::Persistent);
 #if !defined(BUILD_AS_EXECUTABLE)
   notification->setComponentName( QStringLiteral("kwrited") );
 #endif
