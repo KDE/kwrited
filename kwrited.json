@@ -76,7 +76,6 @@
             "KDEDModule"
         ]
     },
-    "X-KDE-DBus-ModuleName": "kwrited",
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": true
 }
