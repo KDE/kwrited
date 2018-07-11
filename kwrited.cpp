@@ -154,6 +154,7 @@ void KWrited::block_in()
   QString msg = QString::fromLocal8Bit( buf.constData(), buf.size() );
   msg.remove(QLatin1Char('\r'));
   msg.remove(QLatin1Char('\a'));
+  msg = msg.trimmed();
 
   KNotification *notification = new KNotification(QStringLiteral("NewMessage"), nullptr, KNotification::Persistent);
 #if !defined(BUILD_AS_EXECUTABLE)
