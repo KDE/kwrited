@@ -42,7 +42,7 @@
 
 static inline KAboutData aboutData()
 {
-    return KAboutData("kwrited", i18n("kwrited"), PROJECT_VERSION);
+    return KAboutData(QStringLiteral("kwrited"), i18n("kwrited"), QLatin1String(PROJECT_VERSION));
 }
 
 #if defined(BUILD_AS_EXECUTABLE)
@@ -152,10 +152,10 @@ void KWrited::block_in()
 {
   QByteArray buf = pty->readAll();
   QString msg = QString::fromLocal8Bit( buf.constData(), buf.size() );
-  msg.remove('\r');
-  msg.remove('\a');
+  msg.remove(QLatin1Char('\r'));
+  msg.remove(QLatin1Char('\a'));
 
-  KNotification *notification = new KNotification("NewMessage", nullptr, KNotification::Persistent);
+  KNotification *notification = new KNotification(QStringLiteral("NewMessage"), nullptr, KNotification::Persistent);
 #if !defined(BUILD_AS_EXECUTABLE)
   notification->setComponentName( QStringLiteral("kwrited") );
 #endif
