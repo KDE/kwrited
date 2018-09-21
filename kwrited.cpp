@@ -117,7 +117,7 @@ KWrited::KWrited() : QObject()
   setegid(original_egid);
 #endif
 
-  pty->login(KUser(KUser::UseRealUserID).loginName().toLocal8Bit().data(), qgetenv("DISPLAY"));
+  pty->login(KUser(KUser::UseRealUserID).loginName().toLocal8Bit().data(), qgetenv("DISPLAY").constData());
   
 #if defined(BUILD_AS_EXECUTABLE)
   //drop privileges again
