@@ -161,6 +161,7 @@ void KWrited::block_in()
   notification->setComponentName( QStringLiteral("kwrited") );
 #endif
   notification->setText( msg );
+  notification->setFlags( KNotification::SkipGrouping );
   connect(notification, SIGNAL(closed()), notification, SLOT(deleteLater()) );
   notification->sendEvent();
 }
