@@ -38,8 +38,11 @@ set_package_properties(KF5DBusAddons PROPERTIES DESCRIPTION "Convenience classes
 endif ()
 
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
-#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050a00)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
+
+if (EXISTS "${CMAKE_SOURCE_DIR}/.git")
+   add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
+endif()
 
 # If libutempter is not available on the system, we build
 # kwrited as an executable that is installed with setuid root
