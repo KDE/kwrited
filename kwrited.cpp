@@ -125,7 +125,7 @@ KWrited::KWrited() : QObject()
   setegid(getgid());
 #endif
 
-  connect(pty, SIGNAL(readyRead()), this, SLOT(block_in()));
+  connect(pty, &QIODevice::readyRead, this, &KWrited::block_in);
   //qDebug() << "listening on device" << pty->ttyName();
 }
 
@@ -162,7 +162,7 @@ void KWrited::block_in()
 #endif
   notification->setText( msg );
   notification->setFlags( KNotification::SkipGrouping );
-  connect(notification, SIGNAL(closed()), notification, SLOT(deleteLater()) );
+  connect(notification, &KNotification::closed, notification, &QObject::deleteLater );
   notification->sendEvent();
 }
 
