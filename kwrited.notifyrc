@@ -1,5 +1,6 @@
 [Global]
 IconName=utilities-terminal
+Name=Local System Message Service
 Comment=Local system message service
 Comment[ar]=خدمة رسائل النّظام المحليّة
 Comment[bg]=Локална услуга за системни съобщения
