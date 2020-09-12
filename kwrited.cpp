@@ -30,7 +30,7 @@
 #include <kaboutdata.h>
 
 #if defined(BUILD_AS_EXECUTABLE)
-# include <QApplication>
+# include <QGuiApplication>
 # include <QSessionManager>
 # include <signal.h>
 # include <sys/types.h>
@@ -53,7 +53,7 @@ static gid_t original_egid;
 static void sigterm_handler(int signal)
 {
     Q_UNUSED(signal)
-    QApplication::quit();
+    QGuiApplication::quit();
 }
 
 int main(int argc, char **argv)
@@ -70,8 +70,8 @@ int main(int argc, char **argv)
     signal(SIGINT, sigterm_handler);
     signal(SIGHUP, sigterm_handler);
 
-    QApplication::setDesktopSettingsAware(false);
-    QApplication a(argc, argv);
+    QGuiApplication::setDesktopSettingsAware(false);
+    QGuiApplication a(argc, argv);
     KAboutData::setApplicationData(aboutData());
     QGuiApplication::setFallbackSessionManagementEnabled(false);
     auto disableSessionManagement = [](QSessionManager &sm) {

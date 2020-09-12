@@ -20,7 +20,7 @@ include(FeatureSummary)
 include(KDEClangFormat)
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-    Widgets
+    Gui
 )
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
@@ -60,7 +60,7 @@ configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited
 if (BUILD_AS_EXECUTABLE)
     add_executable(kwrited kwrited.cpp)
     target_compile_definitions(kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kwrited  Qt5::Widgets KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
+    target_link_libraries(kwrited Qt5::Gui KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
     install(TARGETS kwrited  ${INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
         set(ABS_BIN_INSTALL_DIR "${BIN_INSTALL_DIR}")
