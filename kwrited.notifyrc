@@ -3,6 +3,7 @@ IconName=utilities-terminal
 Name=Local System Message Service
 Name[ca]=Servei de missatges del sistema local
 Name[cs]=Služba Lokální systém zpráv
+Name[da]=Tjeneste til lokale systemmeddelelser
 Name[de]=Dienst für lokale Systemnachrichten
 Name[el]=Τοπική υπηρεσία μηνυμάτων συστήματος
 Name[en_GB]=Local System Message Service
