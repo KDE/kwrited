@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Watch for messages from local users sent with write(1) or wall(1)",
+        "Description[bg]": "Наблюдение за съобщения от локални потребители, изпратени с write(1) или wall(1)",
         "Description[ca@valencia]": "Vigila els missatges dels usuaris locals enviats amb write(1) o wall(1)",
         "Description[ca]": "Vigila els missatges dels usuaris locals enviats amb write(1) o wall(1)",
         "Description[cs]": "Sledování zpráv od místních uživatelů poslaných pomocí write(1) nebo wall(1)",
@@ -42,6 +43,7 @@
         "Description[zh_CN]": "监视本地用户使用 write(1) 或 wall(1) 发送的消息",
         "Description[zh_TW]": "監控本地使用者以 write(1) 或 wall(1) 傳送的訊息",
         "Name": "Write Daemon",
+        "Name[bg]": "Демон за писане",
         "Name[ca@valencia]": "Dimoni d'escriptura",
         "Name[ca]": "Dimoni d'escriptura",
         "Name[cs]": "Zapisovací démon",

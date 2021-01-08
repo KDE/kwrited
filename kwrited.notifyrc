@@ -1,6 +1,7 @@
 [Global]
 IconName=utilities-terminal
 Name=Local System Message Service
+Name[bg]=Локална услуга за системни съобщения
 Name[ca]=Servei de missatges del sistema local
 Name[cs]=Služba Lokální systém zpráv
 Name[da]=Tjeneste til lokale systemmeddelelser
