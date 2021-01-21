@@ -22,34 +22,35 @@
 #ifndef KWRITED_H
 #define KWRITED_H
 
-#include <config-kwrited.h>
 #include <QObject>
+#include <config-kwrited.h>
 class KPtyDevice;
 
 class KWrited : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  KWrited();
- ~KWrited() override;
+    KWrited();
+    ~KWrited() override;
 
 private Q_SLOTS:
-  void block_in();
+    void block_in();
 
 private:
-  KPtyDevice* pty;
+    KPtyDevice *pty;
 };
 
 #if !defined(BUILD_AS_EXECUTABLE)
-# include <kdedmodule.h>
+#include <kdedmodule.h>
 
 class KWritedModule : public KDEDModule
 {
 public:
-  KWritedModule(QObject* parent, const QList<QVariant>&);
- ~KWritedModule() override;
+    KWritedModule(QObject *parent, const QList<QVariant> &);
+    ~KWritedModule() override;
+
 private:
-  KWrited* pro;
+    KWrited *pro;
 };
 
 #endif
