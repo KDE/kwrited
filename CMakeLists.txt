@@ -63,7 +63,7 @@ configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited
 if (BUILD_AS_EXECUTABLE)
     add_executable(kwrited kwrited.cpp)
     target_compile_definitions(kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kwrited Qt5::Gui KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
+    target_link_libraries(kwrited Qt::Gui KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
     install(TARGETS kwrited  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
         set(ABS_BIN_INSTALL_DIR "${BIN_INSTALL_DIR}")
