@@ -66,9 +66,9 @@ if (BUILD_AS_EXECUTABLE)
     target_link_libraries(kwrited Qt::Gui KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
     install(TARGETS kwrited  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
-        set(ABS_BIN_INSTALL_DIR "${BIN_INSTALL_DIR}")
+        set(ABS_BIN_INSTALL_DIR "${KDE_INSTALL_BINDIR}")
     else()
-        set(ABS_BIN_INSTALL_DIR "\${CMAKE_INSTALL_PREFIX}/${BIN_INSTALL_DIR}")
+        set(ABS_BIN_INSTALL_DIR "\${CMAKE_INSTALL_PREFIX}/${KDE_INSTALL_BINDIR}")
     endif()
     install(CODE "
                set(KWRITED_PATH \"\$ENV{DESTDIR}${ABS_BIN_INSTALL_DIR}/kwrited\")
@@ -87,7 +87,7 @@ if (BUILD_AS_EXECUTABLE)
                endif()
            ")
 
-    install(FILES kwrited-autostart.desktop DESTINATION ${AUTOSTART_INSTALL_DIR})
+    install(FILES kwrited-autostart.desktop DESTINATION ${KDE_INSTALL_AUTOSTARTDIR})
 else ()
     kcoreaddons_add_plugin(kded_kwrited
         SOURCES kwrited.cpp
@@ -100,7 +100,7 @@ else ()
 endif ()
 
 # The .notifyrc file is common
-install(FILES kwrited.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+install(FILES kwrited.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFY5RCDIR})
 
 # add clang-format target for all our real source files
 file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
