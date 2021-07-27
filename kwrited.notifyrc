@@ -31,6 +31,7 @@ Name[tr]=Yerel Sistem İletisi Hizmeti
 Name[uk]=Служба повідомлень локальної системи
 Name[vi]=Dịch vụ thông điệp hệ thống nội bộ
 Name[x-test]=xxLocal System Message Servicexx
+Name[zh_CN]=本地系统消息服务
 Comment=Local system message service
 Comment[ar]=خدمة رسائل النّظام المحليّة
 Comment[bg]=Локална услуга за системни съобщения
