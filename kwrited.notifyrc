@@ -1,6 +1,7 @@
 [Global]
 IconName=utilities-terminal
 Name=Local System Message Service
+Name[ar]=خدمة رسائل النّظام المحليّة
 Name[bg]=Локална услуга за системни съобщения
 Name[ca]=Servei de missatges del sistema local
 Name[cs]=Služba Lokální systém zpráv
@@ -173,6 +174,7 @@ Name[x-test]=xxNew message receivedxx
 Name[zh_CN]=收到新消息
 Name[zh_TW]=接到新訊息
 Comment=The daemon received a new message sent with wall(1) or write(1)
+Comment[ar]=استقبل العفريت رسالة جديدة أُرسلت بِـ wall(1) أو write(1).
 Comment[be@latin]=Słužba atrymała novaje paviedamleńnie ad „wall(1)” ci „write(1)”.
 Comment[bg]=Демонът получи ново съобщение (wall(1) или write(1))
 Comment[bs]=Demon je primio novu poruku poslatu kroz wall(1) ili write(1)
