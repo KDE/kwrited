@@ -4,6 +4,7 @@ Name=Local System Message Service
 Name[ar]=خدمة رسائل النّظام المحليّة
 Name[bg]=Локална услуга за системни съобщения
 Name[ca]=Servei de missatges del sistema local
+Name[ca@valencia]=Servei de missatges del sistema local
 Name[cs]=Služba Lokální systém zpráv
 Name[da]=Tjeneste til lokale systemmeddelelser
 Name[de]=Dienst für lokale Systemnachrichten
