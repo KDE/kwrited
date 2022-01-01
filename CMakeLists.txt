@@ -46,8 +46,8 @@ endif ()
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050c00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x054200)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
+add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
 
 # If libutempter is not available on the system, we build
 # kwrited as an executable that is installed with setuid root
