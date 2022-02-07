@@ -89,7 +89,7 @@ else ()
     kcoreaddons_add_plugin(kded_kwrited
         SOURCES kwrited.cpp
         JSON kwrited.json
-        INSTALL_NAMESPACE "kf5/kded"
+        INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
     )
     set_target_properties(kded_kwrited PROPERTIES OUTPUT_NAME kwrited)
     target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
