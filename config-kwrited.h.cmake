@@ -1,1 +1,1 @@
-#cmakedefine BUILD_AS_EXECUTABLE 1
+#cmakedefine01 BUILD_AS_EXECUTABLE

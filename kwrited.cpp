@@ -16,7 +16,7 @@
 #include <kptydevice.h>
 #include <kuser.h>
 
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
 #include <QGuiApplication>
 #include <QSessionManager>
 #include <signal.h>
@@ -32,7 +32,7 @@ static inline KAboutData aboutData()
     return KAboutData(QStringLiteral("kwrited"), i18n("kwrited"), QLatin1String(PROJECT_VERSION));
 }
 
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
 
 static uid_t original_euid;
 static gid_t original_egid;
@@ -94,7 +94,7 @@ KWrited::KWrited()
     pty = new KPtyDevice();
     pty->open();
 
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
     dup2(pty->slaveFd(), 0); // HACK: login() from glibc requires this to login correctly
     // restore elevated privileges
     seteuid(original_euid);
@@ -103,7 +103,7 @@ KWrited::KWrited()
 
     pty->login(KUser(KUser::UseRealUserID).loginName().toLocal8Bit().data(), qgetenv("DISPLAY").constData());
 
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
     // drop privileges again
     seteuid(getuid());
     setegid(getgid());
@@ -115,7 +115,7 @@ KWrited::KWrited()
 
 KWrited::~KWrited()
 {
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
     // restore elevated privileges
     seteuid(original_euid);
     setegid(original_egid);
@@ -123,7 +123,7 @@ KWrited::~KWrited()
 
     pty->logout();
 
-#if defined(BUILD_AS_EXECUTABLE)
+#if BUILD_AS_EXECUTABLE
     // drop privileges again
     seteuid(getuid());
     setegid(getgid());
@@ -141,7 +141,7 @@ void KWrited::block_in()
     msg = msg.trimmed();
 
     KNotification *notification = new KNotification(QStringLiteral("NewMessage"), KNotification::Persistent);
-#if !defined(BUILD_AS_EXECUTABLE)
+#if !BUILD_AS_EXECUTABLE
     notification->setComponentName(QStringLiteral("kwrited"));
 #endif
     notification->setText(msg);
@@ -150,6 +150,6 @@ void KWrited::block_in()
     notification->sendEvent();
 }
 
-#if !defined(BUILD_AS_EXECUTABLE)
+#if !BUILD_AS_EXECUTABLE
 #include "kwrited.moc"
 #endif

@@ -27,7 +27,7 @@ private:
     KPtyDevice *pty;
 };
 
-#if !defined(BUILD_AS_EXECUTABLE)
+#if !BUILD_AS_EXECUTABLE
 #include <kdedmodule.h>
 
 class KWritedModule : public KDEDModule
