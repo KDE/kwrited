@@ -10,3 +10,5 @@ Dependencies:
     'frameworks/ki18n': '@latest'
     'frameworks/knotifications': '@latest'
     'frameworks/kpty': '@latest'
+Options:
+  require-passing-tests-on: [ 'Linux', 'FreeBSD']
