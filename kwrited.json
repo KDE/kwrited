@@ -91,10 +91,7 @@
         "Name[vi]": "Trình nền Write",
         "Name[x-test]": "xxWrite Daemonxx",
         "Name[zh_CN]": "Write 守护进程",
-        "Name[zh_TW]": "Write 伺服程式",
-        "ServiceTypes": [
-            "KDEDModule"
-        ]
+        "Name[zh_TW]": "Write 伺服程式"
     },
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": true
