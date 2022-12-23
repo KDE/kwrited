@@ -20,6 +20,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(FeatureSummary)
 include(KDEClangFormat)
 include(KDEGitCommitHooks)
+include(ECMDeprecationSettings)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Gui
@@ -46,8 +47,9 @@ endif ()
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
-add_definitions(-DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900)
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.101
+)
 
 # If libutempter is not available on the system, we build
 # kwrited as an executable that is installed with setuid root
