@@ -4,13 +4,13 @@ project(kwrited)
 set(PROJECT_VERSION "5.27.80")
 
 set(QT_MIN_VERSION "5.15.2")
-set(KF5_MIN_VERSION "5.102.0")
+set(KF6_MIN_VERSION "5.102.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
 
 include(CMakeDependentOption)
@@ -26,7 +26,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Gui
 )
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
     CoreAddons
     I18n
     Pty
@@ -37,8 +37,8 @@ cmake_dependent_option(BUILD_AS_EXECUTABLE "Whether to build kwrited as executab
                        "KPty_HAVE_UTEMPTER" ON)
 
 if (NOT BUILD_AS_EXECUTABLE)
-find_package(KF5DBusAddons ${KF5_MIN_VERSION})
-set_package_properties(KF5DBusAddons PROPERTIES DESCRIPTION "Convenience classes for DBus"
+find_package(KF6DBusAddons ${KF6_MIN_VERSION})
+set_package_properties(KF6DBusAddons PROPERTIES DESCRIPTION "Convenience classes for DBus"
                        TYPE REQUIRED
                        PURPOSE "Needed to build kwrited's KDED module"
                       )
@@ -62,7 +62,7 @@ configure_file(config-kwrited.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kwrited
 if (BUILD_AS_EXECUTABLE)
     add_executable(kwrited kwrited.cpp)
     target_compile_definitions(kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kwrited Qt::Gui KF5::CoreAddons KF5::I18n KF5::Notifications KF5::Pty)
+    target_link_libraries(kwrited Qt::Gui KF6::CoreAddons KF6::I18n KF6::Notifications KF6::Pty)
     install(TARGETS kwrited  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
     if(IS_ABSOLUTE BIN_INSTALL_DIR)
         set(ABS_BIN_INSTALL_DIR "${KDE_INSTALL_BINDIR}")
@@ -95,7 +95,7 @@ else ()
     )
     set_target_properties(kded_kwrited PROPERTIES OUTPUT_NAME kwrited)
     target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
-    target_link_libraries(kded_kwrited KF5::CoreAddons KF5::DBusAddons KF5::I18n KF5::Notifications KF5::Pty)
+    target_link_libraries(kded_kwrited KF6::CoreAddons KF6::DBusAddons KF6::I18n KF6::Notifications KF6::Pty)
 endif ()
 
 # The .notifyrc file is common
