@@ -24,7 +24,6 @@
 #include <unistd.h>
 #else
 #include <kpluginfactory.h>
-#include <kpluginloader.h>
 #endif
 
 static inline KAboutData aboutData()
