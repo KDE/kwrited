@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.16)
 project(kwrited)
 set(PROJECT_VERSION "5.27.80")
 
-set(QT_MIN_VERSION "5.15.2")
-set(KF6_MIN_VERSION "5.102.0")
+set(QT_MIN_VERSION "6.4.0")
+set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.82")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -47,7 +47,7 @@ endif ()
 add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
-ecm_set_disabled_deprecation_versions(QT 5.15.2
+ecm_set_disabled_deprecation_versions(QT 6.4.0
     KF 5.101
 )
 
