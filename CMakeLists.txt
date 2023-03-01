@@ -90,7 +90,6 @@ if (BUILD_AS_EXECUTABLE)
 else ()
     kcoreaddons_add_plugin(kded_kwrited
         SOURCES kwrited.cpp
-        JSON kwrited.json
         INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
     )
     set_target_properties(kded_kwrited PROPERTIES OUTPUT_NAME kwrited)
