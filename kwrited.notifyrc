@@ -39,6 +39,7 @@ Name[uk]=Служба повідомлень локальної системи
 Name[vi]=Dịch vụ thông điệp hệ thống cục bộ
 Name[x-test]=xxLocal System Message Servicexx
 Name[zh_CN]=本地系统消息服务
+Name[zh_TW]=本地端系統訊息服務
 Comment=Local system message service
 Comment[ar]=خدمة رسائل النّظام المحليّة
 Comment[be]=Служба лакальных сістэмных паведамленняў
