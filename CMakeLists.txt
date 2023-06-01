@@ -22,7 +22,7 @@ include(KDEClangFormat)
 include(KDEGitCommitHooks)
 include(ECMDeprecationSettings)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
+find_package(Qt6 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
     Gui
 )
 
@@ -90,7 +90,7 @@ if (BUILD_AS_EXECUTABLE)
 else ()
     kcoreaddons_add_plugin(kded_kwrited
         SOURCES kwrited.cpp
-        INSTALL_NAMESPACE "kf${QT_MAJOR_VERSION}/kded"
+        INSTALL_NAMESPACE "kf6/kded"
     )
     set_target_properties(kded_kwrited PROPERTIES OUTPUT_NAME kwrited)
     target_compile_definitions(kded_kwrited PRIVATE -DPROJECT_VERSION="${PROJECT_VERSION}")
