@@ -151,3 +151,5 @@ void KWrited::block_in()
 #if !BUILD_AS_EXECUTABLE
 #include "kwrited.moc"
 #endif
+
+#include "moc_kwrited.cpp"
