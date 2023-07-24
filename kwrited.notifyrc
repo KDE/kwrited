@@ -261,6 +261,6 @@ Comment[vi]=Trình nền đã nhận được một thông điệp mới, đư�
 Comment[x-test]=xxThe daemon received a new message sent with wall(1) or write(1)xx
 Comment[zh_CN]=此守护程序可以接受由 wall(1) 或 write(1) 命令发出的消息
 Comment[zh_TW]=伺服程式接收到從 wall(1) 或 write(1) 送出的新訊息
-Sound=Oxygen-Sys-App-Message.ogg
+Sound=message-new-instant
 Action=Popup|Sound
 Persistent=true
