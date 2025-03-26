@@ -48,7 +48,7 @@ add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
 add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
 
 ecm_set_disabled_deprecation_versions(QT 6.8.1
-    KF 6.9.0
+    KF 6.12.0
 )
 
 # If libutempter is not available on the system, we build
