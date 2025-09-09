@@ -46,7 +46,6 @@
         "Description[tr]": "write(1) veya wall(1) ile gönderilen yerel kullanıcılardan gelen iletileri izle",
         "Description[uk]": "Спостереження за  повідомленнями від локальних користувачів, відісланих через write(1) або wall(1)",
         "Description[vi]": "Trực chờ thông điệp từ những người dùng cục bộ, mà được gửi bằng write(1) hoặc wall(1)",
-        "Description[x-test]": "xxWatch for messages from local users sent with write(1) or wall(1)xx",
         "Description[zh_CN]": "监视本地用户使用 write(1) 或 wall(1) 发送的消息",
         "Description[zh_TW]": "監控本地使用者以 write(1) 或 wall(1) 傳送的訊息",
         "Name": "Write Daemon",
@@ -95,7 +94,6 @@
         "Name[tr]": "Yazma Ardalan Süreci",
         "Name[uk]": "Фонова служба запису",
         "Name[vi]": "Trình nền Write",
-        "Name[x-test]": "xxWrite Daemonxx",
         "Name[zh_CN]": "Write 守护进程",
         "Name[zh_TW]": "Write 伺服程式"
     },
