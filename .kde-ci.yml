@@ -11,4 +11,4 @@ Dependencies:
     'frameworks/knotifications': '@latest-kf6'
     'frameworks/kpty': '@latest-kf6'
 Options:
- require-passing-tests-on: ['Linux', 'FreeBSD']
+ require-passing-tests-on: ['@all']
