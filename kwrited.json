@@ -47,6 +47,7 @@
         "Description[ta]": "write(1) அல்லது wall(1) கட்டளைகளை கொண்டு வட்டார பயனர்கள் அனுப்பும் தகவல்களுக்காக காத்திருக்கும்",
         "Description[tg]": "Дидани паёмҳои исролшуда бо қиматҳои write(1) ё wall(1) аз корбарони маҳаллӣ",
         "Description[tr]": "write(1) veya wall(1) ile gönderilen yerel kullanıcılardan gelen iletileri izle",
+        "Description[ug]": "يەرلىك ئىشلەتكۈچى يوللىغان write(1) ياكى wall(1) نى نازارەت قىلىدۇ",
         "Description[uk]": "Спостереження за  повідомленнями від локальних користувачів, відісланих через write(1) або wall(1)",
         "Description[vi]": "Trực chờ thông điệp từ những người dùng cục bộ, mà được gửi bằng write(1) hoặc wall(1)",
         "Description[zh_CN]": "监视本地用户使用 write(1) 或 wall(1) 发送的消息",
